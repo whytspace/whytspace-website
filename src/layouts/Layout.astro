@@ -4,10 +4,15 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import "@fontsource/ubuntu";
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  class="h-full bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -16,36 +21,117 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="flex h-full w-full flex-col">
     <slot />
+
+    <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
+    <div id="ghost-auto" class="ghost ghost-auto"></div>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
+
+<style>
+  .ghost {
+    @apply fixed inset-0 -z-10 m-auto h-1/2 w-1/2;
+    @apply blur-[100px]; /* disable this for debugging */
+    opacity: 0.1;
+    background-image: conic-gradient(
+      theme(colors.slate.300) 0deg,
+      theme(colors.slate.300/0.87) 177.5deg,
+      theme(colors.slate.300/0.3) 360deg
     );
+    transition:
+      opacity 2s ease-in-out,
+      translate 0.2s ease-out;
   }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    /*
+    stack a bunch of aniamtions
+    1. rotate very slowly
+    2. fade in and out
+    3. move around
+    */
+    .ghost-auto {
+      /* offset-path: circle(20% at 50%); */
+      offset-path: ellipse(20% 15% at 50% 30%);
+      offset-distance: 46%;
+      offset-rotate: 10deg;
+      animation:
+        rotate 29s linear infinite,
+        move 200s linear infinite;
+    }
+
+    /* the cursor ghost follows the cursor around */
+    .ghost-cursor {
+      animation: rotate 29s linear infinite;
+      translate: calc((var(--x, 0.5) - 0.5) * 100%)
+        calc((var(--y, 0.5) - 0.5) * 100%);
+    }
   }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+  @keyframes move {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
   }
 </style>
+
+<script>
+  const html = document.documentElement;
+  const ghostCursor = document.getElementById("ghost-cursor");
+  const ghostAuto = document.getElementById("ghost-auto");
+  const hiddenClass = "!opacity-0";
+
+  const pos = { x: 0, y: 0 };
+  const round = (n: number, precision = 2) =>
+    Math.round(n * Math.pow(10, precision)) / Math.pow(10, precision);
+
+  let rafRequested = false;
+
+  const getRelativePosition = (x: number, y: number) => {
+    const posX = round(x / window.innerWidth);
+    const posY = round(y / window.innerHeight);
+    return { x: posX, y: posY };
+  };
+
+  const update = () => {
+    html.style.setProperty("--x", String(pos.x));
+    html.style.setProperty("--y", String(pos.y));
+    rafRequested = false;
+  };
+
+  let timeout: number;
+
+  document.addEventListener("pointermove", (e) => {
+    clearTimeout(timeout);
+    const { x, y } = getRelativePosition(e.clientX, e.clientY);
+    if (pos.x === x && pos.y === y) return;
+    pos.x = x;
+    pos.y = y;
+    if (!rafRequested) {
+      rafRequested = true;
+      window.requestAnimationFrame(update);
+    }
+
+    // make sure the ghost cursor is visible and the auto cursor is hidden
+    ghostCursor?.classList.remove(hiddenClass);
+    ghostAuto?.classList.add(hiddenClass);
+
+    // after two seconds of inactivity, switch back to the auto cursor
+    timeout = window.setTimeout(() => {
+      ghostCursor?.classList.add(hiddenClass);
+      ghostAuto?.classList.remove(hiddenClass);
+    }, 2000);
+  });
+</script>

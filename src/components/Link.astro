@@ -1,0 +1,19 @@
+---
+type Props = astroHTML.JSX.AnchorHTMLAttributes;
+
+const { class: className, ...props } = Astro.props;
+import { twMerge } from "tailwind-merge";
+---
+
+<a
+  {...props}
+  class={twMerge(
+    "group/link relative z-0 inline-flex font-semibold text-slate-200 transition hover:text-slate-800 focus-visible:text-slate-800 focus-visible:outline-none",
+    className,
+  )}
+>
+  <slot />
+  <span
+    class="absolute -inset-1 -inset-y-0.5 -z-10 origin-center -skew-x-6 -skew-y-1 scale-x-0 bg-gradient-to-b from-amber-300 from-85% to-amber-600 to-85% transition will-change-transform group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100"
+  ></span>
+</a>
