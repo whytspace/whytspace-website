@@ -11,16 +11,16 @@ import "@fontsource/ubuntu";
 <!doctype html>
 <html
   lang="en"
-  class="h-full bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
+  class="h-full overflow-x-clip overscroll-y-auto bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
 >
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="flex h-full w-full flex-col">
+  <body class="flex min-h-full w-full flex-col">
     <slot />
 
     <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
