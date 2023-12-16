@@ -11,7 +11,7 @@ import "@fontsource/ubuntu";
 <!doctype html>
 <html
   lang="en"
-  class="h-full overflow-x-clip overscroll-y-auto bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
+  class="h-full overflow-x-clip overscroll-y-auto bg-slate-900 leading-relaxed text-slate-400 antialiased [color-scheme:dark] selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
 >
   <head>
     <meta charset="UTF-8" />
@@ -19,6 +19,7 @@ import "@fontsource/ubuntu";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="theme-color" content="#0f172a" /><!--slate 900 -->
   </head>
   <body class="flex min-h-full w-full flex-col">
     <slot />
