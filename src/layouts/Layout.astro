@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 import "@fontsource/ubuntu";
 ---
@@ -15,13 +16,15 @@ import "@fontsource/ubuntu";
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="theme-color" content="#0f172a" /><!--slate 900 -->
   </head>
-  <body class="flex min-h-full w-full flex-col">
+  <body
+    class="flex min-h-full w-full animate-[appear_2s] flex-col ease-in-out motion-reduce:animate-none"
+  >
     <slot />
 
     <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
@@ -83,6 +86,19 @@ import "@fontsource/ubuntu";
     }
     100% {
       offset-distance: 100%;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      /*
+       * google lighthouse will crash (NO_LCP) if content is completely hidden
+       * @link https://github.com/GoogleChrome/lighthouse/issues/10869#issuecomment-1345613952
+       */
+      opacity: 0.01;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>
