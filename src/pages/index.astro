@@ -1,148 +1,107 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
-import { Icon } from "astro-icon";
-import { obfuscate } from "../utils/email.ts";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
   title="David Hell"
   description="Frontend enthusiast with a love for all things web"
 >
-  <main class="flex h-full w-full flex-auto flex-col overflow-clip px-2 py-6">
-    <div class="relative m-auto w-full max-w-[28rem] p-8 px-4 sm:px-8">
-      <h1 class="text-4xl font-bold text-slate-200">David Hell</h1>
-      <h2 class="mb-4 text-lg font-bold tracking-wider text-slate-200">
-        Frontend enthusiast
-      </h2>
+  <div class="relative m-auto w-full max-w-[28rem] p-8 px-4 sm:px-8">
+    <h1 class="text-4xl font-bold text-slate-200">David Hell</h1>
+    <h2 class="mb-4 text-lg font-bold tracking-wider text-slate-200">
+      Frontend enthusiast
+    </h2>
 
-      <p class="mb-4">
-        Hi there! <span class="wave inline-flex pl-1">👋</span><br />I'm a <strong
-          class="font-semibold text-slate-200">developer</strong
-        >
-         with a <Link
-          target="_blank"
-          href="https://www.fh-joanneum.at/informationsdesign/bachelor/en/"
-          rel="external noopener noreferrer"
-        >
-          background in design
-        </Link> and a love for all things web.
-      </p>
-      <p class="mb-4">
-        After having worked as a full stack developer for <Link
-          target="_blank"
-          href="https://www.engarde.net/"
-        >
-          EN GARDE
-        </Link>, where I learned to turn quality design into maintainable code,
-        I joined the great team at <Link
-          target="_blank"
-          href="https://www.miles-learning.com/"
-        >
-          MILES Learning
-        </Link>, honing my <Link target="_blank" href="https://react.dev/">
-          React
-        </Link> skills.
-      </p>
-      <p class="mb-4">
-        Recently I became a big fan of <Link
-          target="_blank"
-          href="https://www.solidjs.com/"
-        >
-          SolidJS
-        </Link>
-         and <Link target="_blank" href="https://tailwindcss.com/">
-          Tailwind
-        </Link>.
-      </p>
-
-      <p>
-        Off work I like hanging out with my family, friends and my partner, bike
-        riding, playing video games, hiking or doing DIY stuff.
-      </p>
-
-      <!-- lines -->
-      <div
-        class="pointer-events-none absolute inset-0 text-slate-300 opacity-20"
+    <p class="mb-4">
+      Hi there! <span class="wave inline-flex pl-1">👋</span><br />I'm a <strong
+        class="font-semibold text-slate-200">developer</strong
       >
-        <div class="absolute left-0 right-1/2 top-0 h-px bg-current">
-          <!-- top -->
-          <div
-            class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
-          >
-            <!-- left -->
-          </div>
-          <div
-            class="absolute inset-y-0 left-full w-[30vw] bg-gradient-to-r from-current to-transparent"
-          >
-            <!-- right -->
-          </div>
-        </div>
-        <div class="absolute bottom-0 left-[20%] right-0 h-px bg-current">
-          <!-- bottom -->
-          <div
-            class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
-          >
-            <!-- left -->
-          </div>
-          <div
-            class="absolute inset-y-0 left-full w-[25vw] bg-gradient-to-r from-current to-transparent"
-          >
-            <!-- right -->
-          </div>
-        </div>
-        <div class="absolute -bottom-[5%] left-0 top-0 w-px bg-current">
+       with a <Link
+        target="_blank"
+        href="https://www.fh-joanneum.at/informationsdesign/bachelor/en/"
+        rel="external noopener noreferrer"
+      >
+        background in design
+      </Link> and a love for all things web.
+    </p>
+    <p class="mb-4">
+      After having worked as a full stack developer for <Link
+        target="_blank"
+        href="https://www.engarde.net/"
+      >
+        EN GARDE
+      </Link>, where I learned to turn quality design into maintainable code, I
+      joined the great team at <Link
+        target="_blank"
+        href="https://www.miles-learning.com/"
+      >
+        MILES Learning
+      </Link>, honing my <Link target="_blank" href="https://react.dev/">
+        React
+      </Link> skills.
+    </p>
+    <p class="mb-4">
+      Recently I became a big fan of <Link
+        target="_blank"
+        href="https://www.solidjs.com/"
+      >
+        SolidJS
+      </Link>
+       and <Link target="_blank" href="https://tailwindcss.com/">
+        Tailwind
+      </Link>.
+    </p>
+
+    <p>
+      Off work I like hanging out with my family, friends and my partner, bike
+      riding, playing video games, hiking or doing DIY stuff.
+    </p>
+
+    <!-- lines -->
+    <div class="pointer-events-none absolute inset-0 text-slate-300 opacity-20">
+      <div class="absolute left-0 right-1/2 top-0 h-px bg-current">
+        <!-- top -->
+        <div
+          class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
+        >
           <!-- left -->
-          <div
-            class="absolute inset-x-0 bottom-full h-[25vh] bg-gradient-to-b from-transparent to-current"
-          >
-            <!-- top -->
-          </div>
-          <div
-            class="absolute inset-x-0 top-full h-[25vh] bg-gradient-to-b from-current to-transparent"
-          >
-            <!-- bottom -->
-          </div>
+        </div>
+        <div
+          class="absolute inset-y-0 left-full w-[30vw] bg-gradient-to-r from-current to-transparent"
+        >
+          <!-- right -->
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-[20%] right-0 h-px bg-current">
+        <!-- bottom -->
+        <div
+          class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
+        >
+          <!-- left -->
+        </div>
+        <div
+          class="absolute inset-y-0 left-full w-[25vw] bg-gradient-to-r from-current to-transparent"
+        >
+          <!-- right -->
+        </div>
+      </div>
+      <div class="absolute -bottom-[5%] left-0 top-0 w-px bg-current">
+        <!-- left -->
+        <div
+          class="absolute inset-x-0 bottom-full h-[25vh] bg-gradient-to-b from-transparent to-current"
+        >
+          <!-- top -->
+        </div>
+        <div
+          class="absolute inset-x-0 top-full h-[25vh] bg-gradient-to-b from-current to-transparent"
+        >
+          <!-- bottom -->
         </div>
       </div>
     </div>
-
-    <footer class="mx-auto mt-6 w-full max-w-[28rem] px-8">
-      <nav>
-        <ul class="flex flex-wrap items-center gap-4 gap-x-8 pl-px">
-          <li>
-            <Link
-              target="_blank"
-              href="https://github.com/whytspace"
-              class="flex items-center"
-            >
-              <Icon name="mdi:github" class="mr-2 h-8 w-8" />
-              <span class="sr-only">Find me on</span>
-               Github
-            </Link>
-          </li>
-          <li>
-            <Link
-              target="_blank"
-              class="flex items-center"
-              {...obfuscate("hello@davidhell.com")}
-            >
-              <Icon name="mdi:email-outline" class="mr-2 h-8 w-8" />
-              <span class="sr-only">Contact me via</span>
-               Email
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </footer>
-  </main>
+  </div>
 </Layout>
-
-<script>
-  import { deobfuscate } from "../utils/email";
-
-  document.querySelectorAll("[data-eml]").forEach((el) => deobfuscate(el));
-</script>
 
 <style>
   .wave {

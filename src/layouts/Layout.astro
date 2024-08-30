@@ -1,4 +1,8 @@
 ---
+import { Icon } from "astro-icon";
+import Link from "../components/Link.astro";
+import { obfuscate } from "../utils/email.ts";
+
 interface Props {
   title: string;
   description: string;
@@ -25,7 +29,38 @@ import "@fontsource/ubuntu";
   <body
     class="flex min-h-full w-full animate-[appear_2s] flex-col ease-in-out motion-reduce:animate-none"
   >
-    <slot />
+    <main class="flex h-full w-full flex-auto flex-col overflow-clip px-2 py-6">
+      <slot />
+
+      <footer class="mx-auto mt-6 w-full max-w-[28rem] px-8">
+        <nav>
+          <ul class="flex flex-wrap items-center gap-4 gap-x-8 pl-px">
+            <li>
+              <Link
+                target="_blank"
+                href="https://github.com/whytspace"
+                class="flex items-center"
+              >
+                <Icon name="mdi:github" class="mr-2 h-5 w-5" />
+                <span class="sr-only">Find me on</span>
+                 Github
+              </Link>
+            </li>
+            <li>
+              <Link
+                target="_blank"
+                class="flex items-center"
+                {...obfuscate("hello@davidhell.com")}
+              >
+                <Icon name="mdi:email-outline" class="mr-2 h-5 w-5" />
+                <span class="sr-only">Contact me via</span>
+                 Email
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </main>
 
     <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
     <div id="ghost-auto" class="ghost ghost-auto"></div>
@@ -45,6 +80,7 @@ import "@fontsource/ubuntu";
     transition:
       opacity 2s ease-in-out,
       translate 0.2s ease-out;
+    will-change: opacity, translate, rotate, offset-path, offset-distance;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -150,4 +186,10 @@ import "@fontsource/ubuntu";
       ghostAuto?.classList.remove(hiddenClass);
     }, 2000);
   });
+</script>
+
+<script>
+  import { deobfuscate } from "../utils/email";
+
+  document.querySelectorAll("[data-eml]").forEach((el) => deobfuscate(el));
 </script>
