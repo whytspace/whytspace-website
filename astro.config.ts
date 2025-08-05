@@ -1,10 +1,14 @@
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-
+  output: "static",
+  integrations: [
+    //
+    icon(),
+  ],
   /**
    * Never inline scripts for to get rid of the 'unsafe-inline' CSP.
    * Styles are never inlined by astro anyway
@@ -13,5 +17,6 @@ export default defineConfig({
    */
   vite: {
     build: { assetsInlineLimit: 0 },
+    plugins: [tailwindcss()],
   },
 });
