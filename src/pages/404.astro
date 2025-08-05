@@ -7,26 +7,15 @@ import Layout from "../layouts/Layout.astro";
   <div class="relative m-auto w-full max-w-[28rem] p-8 px-4 sm:px-8">
     <h1 class="text-8xl font-bold text-slate-200">404</h1>
 
-    <p class="mb-8 mt-2">There's nothing here.</p>
+    <p class="mt-2 mb-8">There's nothing here.</p>
 
     <Link href="/">Back home</Link>
 
     <!-- lines -->
-    <div class="pointer-events-none absolute inset-0 text-slate-300 opacity-20">
-      <div class="absolute left-0 right-1/2 top-0 h-px bg-current">
-        <!-- top -->
-        <div
-          class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
-        >
-          <!-- left -->
-        </div>
-        <div
-          class="absolute inset-y-0 left-full w-[30vw] bg-gradient-to-r from-current to-transparent"
-        >
-          <!-- right -->
-        </div>
-      </div>
-      <div class="absolute bottom-0 left-[20%] right-0 h-px bg-current">
+    <div
+      class="animate-lines pointer-events-none absolute inset-0 text-slate-300 opacity-20"
+    >
+      <div class="absolute right-0 bottom-0 left-[20%] h-px bg-current">
         <!-- bottom -->
         <div
           class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
@@ -39,7 +28,23 @@ import Layout from "../layouts/Layout.astro";
           <!-- right -->
         </div>
       </div>
-      <div class="absolute -bottom-[5%] left-0 top-0 w-px bg-current">
+      <div class="animate-left absolute top-0 bottom-0 left-0 w-px bg-current">
+        <div
+          class="animate-top absolute top-0 right-1/2 left-0 h-px bg-current"
+        >
+          <!-- top -->
+          <div
+            class="absolute inset-y-0 right-full w-[30vw] bg-gradient-to-r from-transparent to-current"
+          >
+            <!-- left -->
+          </div>
+          <div
+            class="absolute inset-y-0 left-full w-[30vw] bg-gradient-to-r from-current to-transparent"
+          >
+            <!-- right -->
+          </div>
+        </div>
+
         <!-- left -->
         <div
           class="absolute inset-x-0 bottom-full h-[25vh] bg-gradient-to-b from-transparent to-current"
@@ -55,3 +60,74 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
 </Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  @media (prefers-reduced-motion: no-preference) {
+    /*
+    Staggering animation:
+    1. top collapses to the left
+    2. left collapses to the bottom
+    3. all lines fall down
+    */
+
+    :root {
+      --delay: 3s;
+      --duration-top: 1.5s;
+      --duration-left: 2s;
+      --duration-lines: 1.75s;
+    }
+
+    .animate-top {
+      transform-origin: left center;
+      animation: top var(--duration-top) cubic-bezier(0.895, 0.03, 0.685, 0.22)
+        var(--delay) forwards;
+    }
+
+    @keyframes top {
+      0% {
+        rotate: 0deg;
+      }
+      100% {
+        rotate: 89.25deg;
+      }
+    }
+
+    .animate-left {
+      transform-origin: bottom center;
+      animation: left var(--duration-left)
+        cubic-bezier(0.895, 0.03, 0.685, 0.22)
+        calc(var(--delay) + var(--duration-top) - 0.1s) forwards;
+    }
+
+    @keyframes left {
+      0% {
+        rotate: 0deg;
+      }
+      100% {
+        rotate: -89.25deg;
+      }
+    }
+
+    .animate-lines {
+      animation: lines var(--duration-lines) cubic-bezier(0.4, 0, 0.2, 1)
+        calc(var(--delay) + var(--duration-top) + var(--duration-left) - 0.1s)
+        forwards;
+    }
+
+    @keyframes lines {
+      0% {
+        translate: 0 0;
+        opacity: 0.2;
+      }
+      95% {
+        opacity: 0.2;
+      }
+      100% {
+        translate: 0 50vh;
+        opacity: 0;
+      }
+    }
+  }
+</style>
