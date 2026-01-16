@@ -2,6 +2,9 @@
   "name": "whytspace-website",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "24.x.x"
+  },
   "scripts": {
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "dev": "astro dev",
