@@ -1,0 +1,17 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#1d293d",
+    "titleBar.activeForeground": "#cad5e2",
+    "titleBar.inactiveBackground": "#314158",
+    "titleBar.inactiveForeground": "#90a1b9",
+    "statusBarItem.remoteBackground": "#1d293d",
+    "statusBarItem.remoteForeground": "#cad5e2"
+  },
+  /**
+   * Make sure VSCode uses the workspace TypeScript version
+   * this cannot be enforced due to security reasons, but we can force the user to be prompted
+   * @link https://stackoverflow.com/a/75357623
+   */
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

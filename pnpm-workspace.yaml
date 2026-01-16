@@ -1,0 +1,9 @@
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - '@vercel/speed-insights'
+  - esbuild
+  - sharp
+
+# vercel can't install dependencies if this is missing
+packages:
+  - "packages/*"

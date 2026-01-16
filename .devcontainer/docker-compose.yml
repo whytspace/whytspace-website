@@ -1,0 +1,15 @@
+services:
+  devenv:
+    image: mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
+    volumes:
+      - ..:/home/node/whytspace-website:cached
+      - pnpm-store:/home/node/.pnpm-store
+    user: node
+    command: sleep infinity
+    # vscode automatically forwards ports, so no need to specify here
+    # ports:
+    #   - 3000:3000
+
+volumes:
+  devenv:
+  pnpm-store:

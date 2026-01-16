@@ -9,6 +9,9 @@ export default defineConfig({
     //
     icon(),
   ],
+   server: {
+    host: true, // needed by .devcontainer
+  },
   /**
    * Never inline scripts for to get rid of the 'unsafe-inline' CSP.
    * Styles are never inlined by astro anyway

@@ -1,7 +1,7 @@
 {
-  "name": "whytspace",
+  "name": "whytspace-website",
   "type": "module",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "scripts": {
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "dev": "astro dev",

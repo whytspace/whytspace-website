@@ -1,0 +1,31 @@
+{
+  "name": "whytspace-website",
+  "workspaceFolder": "/home/node/whytspace-website",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "20", // check with package.json engines.node
+      "pnpmVersion": "latest", // check with package.json engines.pnpm
+      "nvmVersion": "latest"
+    }
+  },
+  "service": "devenv",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "cd ${containerWorkspaceFolder} && sh .devcontainer/postCreate.sh",
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "EditorConfig.EditorConfig",
+        "bradlc.vscode-tailwindcss",
+        "sleistner.vscode-fileutils",
+        "astro-build.astro-vscode"
+      ]
+    }
+  }
+}
