@@ -9,7 +9,7 @@ export default defineConfig({
     //
     icon(),
   ],
-   server: {
+  server: {
     host: true, // needed by .devcontainer
   },
   /**
