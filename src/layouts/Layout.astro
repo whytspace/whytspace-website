@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import Link from "../components/Link.astro";
-import { obfuscate } from "../utils/email.ts";
+import Link from "@components/Link.astro";
+import { obfuscate } from "@utils/security";
 
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -14,7 +14,7 @@ interface Props {
 const { title, description } = Astro.props;
 
 import "@fontsource/ubuntu";
-import "../styles/global.css";
+import "@styles/global.css";
 ---
 
 <!doctype html>
@@ -54,7 +54,7 @@ import "../styles/global.css";
               <Link
                 target="_blank"
                 class="flex items-center"
-                {...obfuscate("hello@davidhell.com")}
+                {...obfuscate({ href: "mailto:hello@davidhell.com" })}
               >
                 <Icon name="mdi:email-outline" class="mr-2 h-5 w-5" />
                 <span class="sr-only">Contact me via</span>
@@ -198,7 +198,15 @@ import "../styles/global.css";
 </script>
 
 <script>
-  import { deobfuscate } from "../utils/email";
+  import { deobfuscate, ATTRIBUTE } from "@utils/security";
 
-  document.querySelectorAll("[data-eml]").forEach((el) => deobfuscate(el));
+  const run = () => {
+    document.querySelectorAll(`[${ATTRIBUTE}]`).forEach(deobfuscate);
+  };
+
+  // run on load
+  run();
+
+  // rerun after page transition
+  document.addEventListener("astro:after-swap", run);
 </script>

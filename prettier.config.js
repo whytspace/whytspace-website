@@ -14,7 +14,7 @@ export default {
    */
   plugins: [
     /**
-     * sort imports (see config below)
+     * automatically sort imports
      */
     "@trivago/prettier-plugin-sort-imports",
     /**
@@ -22,5 +22,16 @@ export default {
      * @link https://tailwindcss.com/blog/automatic-class-sorting-with-prettier
      */
     "prettier-plugin-tailwindcss",
+
+    "prettier-plugin-astro",
+  ],
+
+  overrides: [
+    {
+      files: "*.astro",
+      options: {
+        parser: "astro",
+      },
+    },
   ],
 };
