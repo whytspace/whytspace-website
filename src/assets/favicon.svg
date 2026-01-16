@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+  <style>
+    .stop-slate-300 {
+      stop-color: #cad5e2;
+    }
+    .line {
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+  </style>
+  <rect width="32" height="32" fill="#0F172B" rx="6" />
+  <path stroke="url(#a)" class="line" d="M9 30V2" />
+  <path stroke="url(#b)" class="line" d="M30 9h-27" />
+  <defs>
+    <linearGradient
+      id="a"
+      x1="8"
+      x2="8"
+      y1="2"
+      y2="30"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop class="stop-slate-300" stop-opacity="0" />
+      <stop offset=".15" class="stop-slate-300" />
+      <stop offset=".75" class="stop-slate-300" />
+      <stop offset="1" class="stop-slate-300" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="b"
+      x1="2"
+      x2="30"
+      y1="6.5"
+      y2="6.5"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop class="stop-slate-300" stop-opacity="0" />
+      <stop offset=".15" class="stop-slate-300" />
+      <stop offset=".75" class="stop-slate-300" />
+      <stop offset="1" class="stop-slate-300" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>
