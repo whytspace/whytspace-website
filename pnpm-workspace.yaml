@@ -1,9 +1,11 @@
+packages:
+  - packages/*
+
 onlyBuiltDependencies:
-  - "@tailwindcss/oxide"
-  - "@vercel/speed-insights"
+  - '@tailwindcss/oxide'
+  - '@vercel/speed-insights'
   - esbuild
   - sharp
 
-# vercel can't install dependencies if this is missing
-packages:
-  - "packages/*"
+overrides:
+  yaml@>=2.0.0 <2.8.3: '>=2.8.3'

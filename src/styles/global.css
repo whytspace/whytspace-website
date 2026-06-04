@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+@import "@fontsource-variable/ubuntu-sans/wght.css";
+
 @theme {
   --font-sans:
-    Ubuntu, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Ubuntu Sans Variable", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
