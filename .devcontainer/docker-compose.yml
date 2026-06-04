@@ -9,6 +9,10 @@ services:
     # vscode automatically forwards ports, so no need to specify here
     # ports:
     #   - 3000:3000
+    # disable ipv6 so that oauth flows that require loopback work correctly
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.lo.disable_ipv6=1
 
 volumes:
   devenv:

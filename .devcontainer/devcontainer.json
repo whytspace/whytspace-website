@@ -3,7 +3,7 @@
   "workspaceFolder": "/home/node/whytspace-website",
   "dockerComposeFile": ["docker-compose.yml"],
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:2": {
       "nodeGypDependencies": true,
       "version": "24", // check with package.json engines.node
       "pnpmVersion": "latest", // check with package.json engines.pnpm
