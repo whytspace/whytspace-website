@@ -1,12 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
-import Link from "@components/Link.astro";
-import { obfuscate } from "@utils/security";
+import Link from "@/components/Link.astro";
+import { obfuscate } from "@/utils/security";
 
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-import favicon from "@assets/favicon.svg";
+import favicon from "@/assets/favicon.svg";
 
 interface Props {
   title: string;
@@ -15,7 +15,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-import "@styles/global.css";
+import "@/styles/global.css";
 ---
 
 <!doctype html>
@@ -201,7 +201,7 @@ import "@styles/global.css";
 </script>
 
 <script>
-  import { deobfuscate, ATTRIBUTE } from "@utils/security";
+  import { deobfuscate, ATTRIBUTE } from "@/utils/security";
 
   const run = () => {
     document.querySelectorAll(`[${ATTRIBUTE}]`).forEach(deobfuscate);

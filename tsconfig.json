@@ -5,7 +5,7 @@
     "paths": {
       // automatically resolve all files in the src directory with @ prefix
       // e.g. "@components/Foo.astro" -> "src/components/Foo.astro"
-      "@*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],
