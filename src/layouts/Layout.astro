@@ -18,7 +18,7 @@ import "@/styles/global.css";
 <!doctype html>
 <html
   lang="en"
-  class="h-full overflow-x-clip overscroll-y-auto bg-slate-900 leading-relaxed text-slate-400 antialiased [color-scheme:dark] selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
+  class="h-full overflow-x-clip overscroll-y-auto bg-slate-900 leading-relaxed text-slate-400 antialiased scheme-dark selection:bg-amber-300 selection:text-slate-900 contrast-more:text-slate-300"
 >
   <head>
     <meta charset="UTF-8" />
@@ -36,7 +36,7 @@ import "@/styles/global.css";
     <main class="flex h-full w-full flex-auto flex-col overflow-clip px-2 py-6">
       <slot />
 
-      <footer class="mx-auto mt-6 w-full max-w-[28rem] px-8">
+      <footer class="mx-auto mt-6 w-full max-w-md px-8">
         <nav>
           <ul class="flex flex-wrap items-center gap-4 gap-x-8 pl-px">
             <li>
@@ -66,7 +66,7 @@ import "@/styles/global.css";
       </footer>
     </main>
 
-    <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
+    <div id="ghost-cursor" class="ghost ghost-cursor opacity-0!"></div>
     <div id="ghost-auto" class="ghost ghost-auto"></div>
   </body>
 </html>
