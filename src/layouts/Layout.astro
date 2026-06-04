@@ -3,9 +3,6 @@ import { Icon } from "astro-icon/components";
 import Link from "@/components/Link.astro";
 import { obfuscate } from "@/utils/security";
 
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-
 import favicon from "@/assets/favicon.svg";
 
 interface Props {
@@ -71,9 +68,6 @@ import "@/styles/global.css";
 
     <div id="ghost-cursor" class="ghost ghost-cursor !opacity-0"></div>
     <div id="ghost-auto" class="ghost ghost-auto"></div>
-
-    <Analytics />
-    <SpeedInsights />
   </body>
 </html>
 
