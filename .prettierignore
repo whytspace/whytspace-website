@@ -6,4 +6,5 @@ coverage
 # package manager
 node_modules
 pnpm-lock.yaml
+pnpm-workspace.yaml
 package-lock.yaml

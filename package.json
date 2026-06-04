@@ -6,7 +6,7 @@
     "node": "24.x.x"
   },
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier -l --write .",
     "dev": "astro dev",
     "check": "astro check",
     "start": "astro dev",
