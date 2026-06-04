@@ -1,0 +1,89 @@
+---
+import Link from "@/components/Link.astro";
+import Layout from "@/layouts/Layout.astro";
+import { obfuscate } from "@/utils/security";
+
+const email = "hello@davidhell.com";
+const mail = () => obfuscate({ href: `mailto:${email}`, __content: email });
+---
+
+<Layout title="Impressum • David Hell" description="Imprint & privacy policy">
+  <article class="m-auto w-full max-w-2xl px-4 py-8 sm:px-8">
+    <h1 class="mb-6 text-4xl font-bold text-slate-200">Imprint & Privacy</h1>
+
+    <p class="mb-4">
+      Protecting your data matters to me. This site only processes what is
+      technically needed to run it – no advertising trackers, no user profiles,
+      no sharing of your data with third parties for marketing.
+    </p>
+
+    <h3 class="mb-2 text-lg font-bold text-slate-200">Contact</h3>
+
+    <p class="mb-8">
+      David Hell
+      <br />
+      Graz, Austria
+      <br />
+      Email:
+      <Link {...obfuscate({ href: `mailto:${email}` })}>
+        <span {...obfuscate({ __content: email })}></span>
+      </Link>
+    </p>
+
+    <h3 class="mb-2 text-lg font-bold text-slate-200">Hosting & delivery</h3>
+
+    <p class="mb-8">
+      This site is delivered through <em>Cloudflare Pages</em> (Cloudflare, Inc.,
+      USA), served to EU visitors from European edge locations. In doing so, Cloudflare
+      processes technical data such as your IP address, browser and the requested
+      URL – solely to deliver the content and to protect against attacks, not for
+      advertising or profiling. The IP address cannot be anonymised at this level,
+      as it is required for delivery. Cloudflare is certified under the EU–US Data
+      Privacy Framework. The legal basis is my legitimate interest (Art. 6(1)(f) GDPR).
+      <br />
+      <Link
+        target="_blank"
+        rel="external noopener noreferrer nofollow"
+        href="https://www.cloudflare.com/privacypolicy/"
+      >
+        Cloudflare: Privacy Policy
+      </Link>
+      <br />
+      <Link
+        target="_blank"
+        rel="external noopener noreferrer nofollow"
+        href="https://www.cloudflare.com/trust-hub/gdpr/"
+      >
+        Cloudflare: GDPR compliance
+      </Link>
+    </p>
+
+    <h3 class="mb-2 text-lg font-bold text-slate-200">Web analytics</h3>
+
+    <p class="mb-8">
+      For a rough overview of visitor numbers I use
+      <em>Cloudflare Web Analytics</em> – without cookies, without fingerprinting
+      and without tracking individual users. The data is only evaluated in aggregate
+      and does not allow any conclusions about individual people. Legal basis: legitimate
+      interest (Art. 6(1)(f) GDPR).
+      <br />
+      <Link
+        target="_blank"
+        rel="external noopener noreferrer nofollow"
+        href="https://www.cloudflare.com/web-analytics/"
+      >
+        Cloudflare Web Analytics: product information
+      </Link>
+    </p>
+
+    <h3 class="mb-2 text-lg font-bold text-slate-200">Cookies</h3>
+
+    <p class="mb-8">
+      This site sets no cookies of its own for tracking, marketing or profiling.
+      Cloudflare may set technically necessary cookies as part of security and
+      attack protection.
+    </p>
+
+    <Link href="/">Back home</Link>
+  </article>
+</Layout>
