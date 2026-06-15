@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout.astro";
 import { obfuscate } from "@/utils/security";
 
 const email = "hello@davidhell.com";
-const mail = () => obfuscate({ href: `mailto:${email}`, __content: email });
 ---
 
 <Layout title="Impressum • David Hell" description="Imprint & privacy policy">
