@@ -5,6 +5,11 @@ allowBuilds:
   esbuild: true
   sharp: true
 
+auditConfig:
+  ignoreGhsas:
+    # extract-zip has no patched release (latest 2.0.1 is vulnerable); build-time only, via astro-icon > @iconify/tools
+    - GHSA-jmr9-qjv8-65gv
+
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
