@@ -4,6 +4,8 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  // keep pre-7 whitespace handling: the "jsx" default drops spaces before inline tags
+  compressHTML: true,
   output: "static",
   integrations: [
     //
