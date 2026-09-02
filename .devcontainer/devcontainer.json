@@ -6,7 +6,7 @@
     "ghcr.io/devcontainers/features/node:2": {
       "nodeGypDependencies": true,
       "version": "24", // check with package.json engines.node
-      "pnpmVersion": "latest", // check with package.json engines.pnpm
+      "pnpmVersion": "11.25.0", // check with package.json engines.pnpm
       "nvmVersion": "latest"
     }
   },

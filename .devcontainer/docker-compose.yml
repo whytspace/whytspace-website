@@ -1,6 +1,6 @@
 services:
   devenv:
-    image: mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
+    image: mcr.microsoft.com/devcontainers/javascript-node:3-24-bookworm
     volumes:
       - ..:/home/node/whytspace-website:cached
       - pnpm-store:/home/node/.pnpm-store
