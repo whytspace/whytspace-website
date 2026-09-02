@@ -4,6 +4,9 @@ services:
     volumes:
       - ..:/home/node/whytspace-website:cached
       - pnpm-store:/home/node/.pnpm-store
+      # node_modules on a named volume: pnpm relocates its store into the project
+      # when it cannot hard link from the configured one, and the project is the bind mount
+      - node-modules:/home/node/whytspace-website/node_modules
     user: node
     command: sleep infinity
     # vscode automatically forwards ports, so no need to specify here
@@ -17,3 +20,4 @@ services:
 volumes:
   devenv:
   pnpm-store:
+  node-modules:

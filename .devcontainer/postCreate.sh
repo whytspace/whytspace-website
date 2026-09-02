@@ -1,9 +1,9 @@
 #!/bin/bash
 # this script is supposed to be called from the project root (e.g. sh .devcontainer/postCreate.sh)
 
-# remove eventually installed node_modules
-# this is needed when the project was initially installed on the host without a .devcontainer
-rm -rf ./node_modules
+# node_modules is a named volume, so a host-side install is masked rather than inherited;
+# the mount arrives root-owned and has to be handed to the container user
+sudo chown node /home/node/whytspace-website/node_modules
 
 # set store location outside of (vscode) workspace, because .pnpm would set up in workspace root
 # this is similar to what pnpm would do on a host machine outside .devcontainer
