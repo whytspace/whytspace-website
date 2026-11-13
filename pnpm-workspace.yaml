@@ -10,3 +10,6 @@ auditConfig:
   ignoreGhsas:
     # extract-zip has no patched release (latest 2.0.1 is vulnerable); build-time only, via astro-icon > @iconify/tools
     - GHSA-jmr9-qjv8-65gv
+
+overrides:
+  minimatch@>=7.0.0 <11.0.1: ^11.0.1
